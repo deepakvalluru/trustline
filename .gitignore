@@ -1,0 +1,5 @@
+.vscode
+/trustline-api/node_modules
+/trustline-ui/node_modules
+/trustline-ui/build
+/trustline-api/src/build
