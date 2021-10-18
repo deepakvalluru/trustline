@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node ./src/index.js",
+    "start": "npm run build-client && npm run move-client-build && npm run build && node ./src/index.js",
+    "build-client" : "cd ../trustline-ui && npm run build",
+    "move-client-build" : "mv ../trustline-ui/build ../trustline-api/src/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && npm prune && npx tsc --project ./",
     "clean": "npx tsc --build --clean"
