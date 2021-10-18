@@ -3,6 +3,6 @@
     "version": "0.1.0",
     "scripts": {
         "start": "cd ./trustline-api && npm start",
-        "postinstall": "npm install --prefix trustline-api && npm install --prefix trustline-ui"
+        "postinstall": "npm install --prefix trustline-api && npm install --prefix trustline-ui && npm install typescript"
     }
   }
