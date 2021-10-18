@@ -7,6 +7,7 @@ import IssuersDropDownComponent from './IssuersDropDownComponent';
 import CurrencyListComponent from './CurrencyListComponent';
 import SignTransactionComponent from './SignTransactionComponent';
 import CustomEditComponent from './CustomEditComponent';
+import { BASE_API_URL } from './constants';
 
 const TabsComponent = () => {
     const [tab, setTab] = useState('commonIssuer');
@@ -18,7 +19,7 @@ const TabsComponent = () => {
     const [customIssuerValue, setCustomIssuerValue] = useState([]);
     
     useEffect(() => {
-        fetch("http://localhost:3000/api/issuers")
+        fetch(`${BASE_API_URL}/api/issuers`)
           .then(res => res.json())
           .then(
             (result) => {
@@ -32,7 +33,7 @@ const TabsComponent = () => {
         console.log("selectedIssuer: "+ selectedIssuer);
         setSelectedIssuer(selectedIssuer);
         // console
-        fetch(`http://localhost:3000/api/issuers/${selectedIssuer}/currencies`)
+        fetch(`${BASE_API_URL}/api/issuers/${selectedIssuer}/currencies`)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -52,7 +53,7 @@ const TabsComponent = () => {
     const signTranscation = (selectedCurrency) => {
         setLoading(true);
         console.log("Calling Sign transaction with currency", selectedCurrency);
-        fetch(`http://localhost:3000/api/signTransaction`, {
+        fetch(`${BASE_API_URL}/api/signTransaction`, {
           method: "post",
           body: JSON.stringify(selectedCurrency),
           headers: {'content-type': 'application/json', 'Accept': 'application/json'},
@@ -74,7 +75,7 @@ const TabsComponent = () => {
 
     const onClickListTokens = () => {
         console.log("Custom Issuer", customIssuerValue);
-        fetch(`http://localhost:3000/api/obligations/${customIssuerValue}`)
+        fetch(`${BASE_API_URL}/api/obligations/${customIssuerValue}`)
             .then(res => res.json())
             .then(
                 (result) => {
