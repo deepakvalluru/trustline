@@ -75,8 +75,7 @@ app.get('/api/curatedAssets', (req, res) => {
 })
 
 app.get('/api/issuers', (req, res) => {
-  console.log('api/issuers called!');
-  console.log("Testing automatic deploys on Heroku again!")
+  console.log('api/issuers called!Testing automatic deploys on Heroku again!');
   res.json(curatedAssetsResponse.issuers);
 });
 
